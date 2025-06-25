@@ -25,8 +25,8 @@ export default async function handler(req, res) {
 
         const drive = google.drive({ version: 'v3', auth });
 
+        // --- CORRECTED formidable USAGE ---
         const form = formidable({});
-        // Using a promise-based approach with formidable v3
         const [fields, files] = await new Promise((resolve, reject) => {
             form.parse(req, (err, fields, files) => {
                 if (err) {
@@ -37,6 +37,7 @@ export default async function handler(req, res) {
             });
         });
 
+        // formidable nests the uploaded file inside an array with the key 'file'
         const file = files.file[0];
         const fileName = fields.fileName[0];
 
