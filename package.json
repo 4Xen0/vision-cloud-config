@@ -3,12 +3,8 @@
   "version": "1.0.0",
   "description": "Secure uploader for Vision Loader configs",
   "main": "api/upload.js",
-  "scripts": {
-    "start": "node ."
-  },
   "dependencies": {
-    "axios": "^1.7.2",
-    "formidable": "^3.5.1",
+    "busboy": "^1.6.0",
     "googleapis": "^140.0.1"
   }
 }
